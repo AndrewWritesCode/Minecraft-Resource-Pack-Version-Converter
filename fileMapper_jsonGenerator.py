@@ -14,20 +14,20 @@ def FileMapper(mode='function', fxnRootDir='', fxnJsonPath='', exts2omit=[]):
             print('Unable to change to root directory')
             print('Terminating Session...')
             exit()
+        if fxnJsonPath != '':
+            if jsonFilename[:-5] != '.json':
+                print('JSON filename does not end with .json')
+                print('Terminating Session...')
+                exit()
 
-        if jsonFilename[:-5] != '.json':
-            print('JSON filename does not end with .json')
-            print('Terminating Session...')
-            exit()
-
-        try:
-            fl = len(jsonFilename) + 1
-            outputDir = jsonPath[:-fl]
-            os.chdir(outputDir)
-        except:
-            print('Unable to change to output directory')
-            print('Terminating Session...')
-            exit()
+            try:
+                fl = len(jsonFilename) + 1
+                outputDir = jsonPath[:-fl]
+                os.chdir(outputDir)
+            except:
+                print('Unable to change to output directory')
+                print('Terminating Session...')
+                exit()
 
     elif mode == 'terminal':
         rootSuc = False
@@ -118,15 +118,25 @@ def FileMapper(mode='function', fxnRootDir='', fxnJsonPath='', exts2omit=[]):
                 continue
 
             if len(dict) == 0:
-                fileInfo = {
-                    "filemapper_json": jsonFilename,
-                    "filename": filename,
-                    "number of paths": str(pathNumber),
-                    "filepath-" + str(pathNumber): str(path)
-                }
-                dict[filename] = fileInfo
-                print('RUNNING... PLEASE WAIT...')
-                continue
+                if (fxnJsonPath == '') and (mode == 'function'):
+                    fileInfo = {
+                        "filename": filename,
+                        "number of paths": str(pathNumber),
+                        "filepath-" + str(pathNumber): str(path)
+                    }
+                    dict[filename] = fileInfo
+                    print('RUNNING... PLEASE WAIT...')
+                    continue
+                else:
+                    fileInfo = {
+                        "filemapper_json": jsonFilename,
+                        "filename": filename,
+                        "number of paths": str(pathNumber),
+                        "filepath-" + str(pathNumber): str(path)
+                    }
+                    dict[filename] = fileInfo
+                    print('RUNNING... PLEASE WAIT...')
+                    continue
 
             else:
                 for key in dict:
@@ -144,21 +154,30 @@ def FileMapper(mode='function', fxnRootDir='', fxnJsonPath='', exts2omit=[]):
                         isDup = False
 
             if not isDup:
-                fileInfo = {
-                    "filemapper_json": jsonFilename,
-                    "filename": filename,
-                    "number of paths": str(pathNumber),
-                    "filepath-" + str(pathNumber): str(path)
-                }
-                dict[filename] = fileInfo
+                if (fxnJsonPath == '') and (mode == 'function'):
+                    fileInfo = {
+                        "filename": filename,
+                        "number of paths": str(pathNumber),
+                        "filepath-" + str(pathNumber): str(path)
+                    }
+                    dict[filename] = fileInfo
+                else:
+                    fileInfo = {
+                        "filemapper_json": jsonFilename,
+                        "filename": filename,
+                        "number of paths": str(pathNumber),
+                        "filepath-" + str(pathNumber): str(path)
+                    }
+                    dict[filename] = fileInfo
             else:
                 dict[filename]["number of paths"] = str(pathNumber)
                 dict[filename]["filepath-" + str(pathNumber)] = str(path)
-
-    json_object = json.dumps(dict, indent=4)
-    f = open(jsonPath, "w")
-    f.write(json_object)
-    f.close()
+    if fxnJsonPath != '':
+        json_object = json.dumps(dict, indent=4)
+        f = open(jsonPath, "w")
+        f.write(json_object)
+        f.close()
+    return dict
 
 
 FileMapper(mode='terminal')
