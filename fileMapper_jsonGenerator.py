@@ -2,6 +2,8 @@ import os
 import json
 import sys
 
+extensions2omit = []
+
 identifier = input('Enter the name of the output JSON file: ')
 rootDir = ''
 rootSuc = False
@@ -26,11 +28,19 @@ dict = {}
 l_root = len(rootDir)
 for dir, subdirs, files in os.walk(os.getcwd()):
     for file in files:
+        omitFile = False
         isDup = False
         pathNumber = 1
         filename = str(file)
         l = len(filename)
         path = dir[l_root:]
+
+        for extension in extensions2omit:
+            e = len(file) - len(extension)
+            if file[e:] == extension:
+                omitFile = True
+        if omitFile:
+            continue
 
         if len(dict) == 0:
             print('L EQUAL TO 0')
@@ -44,11 +54,8 @@ for dir, subdirs, files in os.walk(os.getcwd()):
             print('RUNNING... PLEASE WAIT...')
             continue
 
-# TODO : add file extensions to omits here
-        
         else:
             for key in dict:
-                #print('Dup test: ' + key == filename)
                 try:
                     if key == filename:
                         pathNumber = int(dict[key]["number of paths"])
