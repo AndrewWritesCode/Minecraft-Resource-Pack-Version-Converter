@@ -1,6 +1,6 @@
 import os
 import json
-import sys
+from sys import exit
 
 
 def FileMapper(mode='function', fxnRootDir='', fxnJsonPath='', exts2omit=[]):
@@ -13,12 +13,12 @@ def FileMapper(mode='function', fxnRootDir='', fxnJsonPath='', exts2omit=[]):
         except:
             print('Unable to change to root directory')
             print('Terminating Session...')
-            sys.exit()
+            exit()
 
         if jsonFilename[:-5] != '.json':
             print('JSON filename does not end with .json')
             print('Terminating Session...')
-            sys.exit()
+            exit()
 
         try:
             fl = len(jsonFilename) + 1
@@ -27,7 +27,7 @@ def FileMapper(mode='function', fxnRootDir='', fxnJsonPath='', exts2omit=[]):
         except:
             print('Unable to change to output directory')
             print('Terminating Session...')
-            sys.exit()
+            exit()
 
     elif mode == 'terminal':
         rootSuc = False
@@ -38,7 +38,7 @@ def FileMapper(mode='function', fxnRootDir='', fxnJsonPath='', exts2omit=[]):
             rootDir = input('Enter the path of directory to use as the root: ')
             if rootDir == 'x':
                 print('Terminating Session...')
-                sys.exit()
+                exit()
             try:
                 os.chdir(rootDir)
                 rootSuc = True
@@ -54,7 +54,7 @@ def FileMapper(mode='function', fxnRootDir='', fxnJsonPath='', exts2omit=[]):
         while not outputDirSuc:
             if jsonPath == 'x':
                 print('Terminating Session...')
-                sys.exit()
+                exit()
             try:
                 outputDir = jsonPath[:-fl]
                 os.chdir(outputDir)
@@ -96,7 +96,7 @@ def FileMapper(mode='function', fxnRootDir='', fxnJsonPath='', exts2omit=[]):
         print('The following modes are available:')
         print('function')
         print('terminal')
-        sys.exit()
+        exit()
 
     dict = {}
 
