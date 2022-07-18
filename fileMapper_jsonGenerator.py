@@ -2,100 +2,163 @@ import os
 import json
 import sys
 
-extensions2omit = []
 
-identifier = input('Enter the name of the output JSON file: ')
-rootDir = ''
-rootSuc = False
-outputDirSuc = False
-outputDir = ''
+def FileMapper(mode='function', fxnRootDir='', fxnJsonPath='', exts2omit=[]):
+    if mode == 'function':
+        rootDir = fxnRootDir
+        jsonPath = fxnJsonPath
+        jsonFilename = os.path.basename(jsonPath)
+        try:
+            os.chdir(rootDir)
+        except:
+            print('Unable to change to root directory')
+            print('Terminating Session...')
+            sys.exit()
 
-while not rootSuc:
-    rootDir = input('Enter the path of directory to use as the root: ')
-    if rootDir == 'x':
-        print('Terminating Session...')
+        if jsonFilename[:-5] != '.json':
+            print('JSON filename does not end with .json')
+            print('Terminating Session...')
+            sys.exit()
+
+        try:
+            fl = len(jsonFilename) + 1
+            outputDir = jsonPath[:-fl]
+            os.chdir(outputDir)
+        except:
+            print('Unable to change to output directory')
+            print('Terminating Session...')
+            sys.exit()
+
+    elif mode == 'terminal':
+        rootSuc = False
+        outputDirSuc = False
+        extSuc = False
+
+        while not rootSuc:
+            rootDir = input('Enter the path of directory to use as the root: ')
+            if rootDir == 'x':
+                print('Terminating Session...')
+                sys.exit()
+            try:
+                os.chdir(rootDir)
+                rootSuc = True
+                break
+            except:
+                print('Could not change to root directory')
+                rootDir = input('Enter the path of directory to use as the root or enter [x] key to terminate: ')
+
+        jsonPath = input('Define path of the JSON file to be generated (include filename and .json): ')
+        jsonFilename = os.path.basename(jsonPath)
+        fl = len(jsonFilename) + 1
+        outputDir = jsonPath[:-fl]
+        while not outputDirSuc:
+            if jsonPath == 'x':
+                print('Terminating Session...')
+                sys.exit()
+            try:
+                outputDir = jsonPath[:-fl]
+                os.chdir(outputDir)
+                outputDirSuc = True
+                break
+            except:
+                print('Could not change to output directory')
+                jsonPath = input('Define path of the JSON file to be generated or enter [x] key to terminate \
+                (include filename and .json): ')
+
+        while not extSuc:
+            if jsonFilename[(len(jsonFilename)-5):] == '.json':
+                extSuc = True
+            else:
+                print('JSON filename does not end with .json')
+                oldFilenameLength = len(jsonFilename)
+                jsonFilename = input('Define JSON filename (without path): ')
+                jsonPath = os.path.join(outputDir, jsonFilename)
+
+        listingExt = False
+        while True:
+            if not listingExt:
+                extQ = input('Would you like to omit certain file extension from your file map? [y/n]: ')
+            if extQ.lower() == 'y':
+                extOmission = input('Enter [STOP] to finish or enter a file extension that you would like to omit from your file map (such as .py, .cpp, etc): ')
+                listingExt = True
+                if extOmission.upper() == 'STOP':
+                    break
+                exts2omit.append(str(extOmission))
+                print('Omitting ' + extOmission + ' from file map...')
+            elif extQ.lower() == 'n':
+                print('Including all file extensions')
+                break
+            else:
+                print('Please answer question with [y/n]...')
+
+    else:
+        print('mode was not properly define, check spelling.')
+        print('The following modes are available:')
+        print('function')
+        print('terminal')
         sys.exit()
-    try:
-        os.chdir(rootDir)
-        rootSuc = True
-        break
-    except:
-        print('Could not change to root directory')
-        rootDir = input('Enter the path of directory to use as the root or enter [x] key to terminate: ')
 
-dict = {}
+    dict = {}
 
-l_root = len(rootDir)
-for dir, subdirs, files in os.walk(os.getcwd()):
-    for file in files:
-        omitFile = False
-        isDup = False
-        pathNumber = 1
-        filename = str(file)
-        l = len(filename)
-        path = dir[l_root:]
+    l_root = len(rootDir)
+    for dir, subdirs, files in os.walk(os.getcwd()):
+        for file in files:
+            omitFile = False
+            isDup = False
+            pathNumber = 1
+            filename = str(file)
+            l = len(filename)
+            path = dir[l_root:]
 
-        for extension in extensions2omit:
-            e = len(file) - len(extension)
-            if file[e:] == extension:
-                omitFile = True
-        if omitFile:
-            continue
+            for extension in exts2omit:
+                e = len(file) - len(extension)
+                if file[e:] == extension:
+                    omitFile = True
+            if omitFile:
+                continue
 
-        if len(dict) == 0:
-            print('L EQUAL TO 0')
-            fileInfo = {
-                "identifier": identifier,
-                "filename": filename,
-                "number of paths": str(pathNumber),
-                "filepath-" + str(pathNumber): str(path)
-            }
-            dict[filename] = fileInfo
-            print('RUNNING... PLEASE WAIT...')
-            continue
+            if len(dict) == 0:
+                fileInfo = {
+                    "filemapper_json": jsonFilename,
+                    "filename": filename,
+                    "number of paths": str(pathNumber),
+                    "filepath-" + str(pathNumber): str(path)
+                }
+                dict[filename] = fileInfo
+                print('RUNNING... PLEASE WAIT...')
+                continue
 
-        else:
-            for key in dict:
-                try:
-                    if key == filename:
-                        pathNumber = int(dict[key]["number of paths"])
-                        pathNumber += 1
+            else:
+                for key in dict:
+                    try:
+                        if key == filename:
+                            pathNumber = int(dict[key]["number of paths"])
+                            pathNumber += 1
 
-                        fileInfo = {
-                            "number of paths": str(pathNumber),
-                            "filepath-" + str(pathNumber): str(path)
-                        }
-                        isDup = True
-                except:
-                    isDup = False
+                            fileInfo = {
+                                "number of paths": str(pathNumber),
+                                "filepath-" + str(pathNumber): str(path)
+                            }
+                            isDup = True
+                    except:
+                        isDup = False
 
-        if not isDup:
-            fileInfo = {
-                "identifier": identifier,
-                "filename": filename,
-                "number of paths": str(pathNumber),
-                "filepath-" + str(pathNumber): str(path)
-            }
-            dict[filename] = fileInfo
-        else:
-            dict[filename]["number of paths"] = str(pathNumber)
-            dict[filename]["filepath-" + str(pathNumber)] = str(path)
+            if not isDup:
+                fileInfo = {
+                    "filemapper_json": jsonFilename,
+                    "filename": filename,
+                    "number of paths": str(pathNumber),
+                    "filepath-" + str(pathNumber): str(path)
+                }
+                dict[filename] = fileInfo
+            else:
+                dict[filename]["number of paths"] = str(pathNumber)
+                dict[filename]["filepath-" + str(pathNumber)] = str(path)
 
-while not outputDirSuc:
-    outputDir = input('Enter the path of the output directory (will create a /JSON folder here): ')
-    if outputDir == 'x':
-        print('Terminating Session...')
-        sys.exit()
-    try:
-        os.chdir(outputDir)
-        outputDirSuc = True
-        break
-    except:
-        print('Could not change to output directory')
-        rootDir = input('Enter the path of the output directory (will save a JSON file here) \
-        or enter [x] key to terminate: ')
+    json_object = json.dumps(dict, indent=4)
+    f = open(jsonPath, "w")
+    f.write(json_object)
+    f.close()
 
-json_object = json.dumps(dict, indent=4)
-f = open(identifier + "_fileMapper.json", "w")
-f.write(json_object)
-f.close()
+
+FileMapper(mode='terminal')
