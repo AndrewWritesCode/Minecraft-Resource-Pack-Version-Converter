@@ -118,7 +118,7 @@ def FileMapper(mode='function', fxnRootDir='', fxnJsonPath='', exts2omit=[]):
                 continue
 
             if len(dict) == 0:
-                if (fxnJsonPath == '') and (mode == 'function'):
+                if (jsonPath == '') and (mode == 'function'):
                     fileInfo = {
                         "filename": filename,
                         "number of paths": str(pathNumber),
@@ -154,7 +154,7 @@ def FileMapper(mode='function', fxnRootDir='', fxnJsonPath='', exts2omit=[]):
                         isDup = False
 
             if not isDup:
-                if (fxnJsonPath == '') and (mode == 'function'):
+                if (jsonPath == '') and (mode == 'function'):
                     fileInfo = {
                         "filename": filename,
                         "number of paths": str(pathNumber),
@@ -172,7 +172,7 @@ def FileMapper(mode='function', fxnRootDir='', fxnJsonPath='', exts2omit=[]):
             else:
                 dict[filename]["number of paths"] = str(pathNumber)
                 dict[filename]["filepath-" + str(pathNumber)] = str(path)
-    if fxnJsonPath != '':
+    if jsonPath != '':
         json_object = json.dumps(dict, indent=4)
         f = open(jsonPath, "w")
         f.write(json_object)
