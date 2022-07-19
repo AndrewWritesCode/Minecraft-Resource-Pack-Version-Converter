@@ -5,7 +5,7 @@ By running fileMapper_jsonGenerator.py and following the temrinal prompts, each 
 
 By using the following in a python script:
 
-## *import FileMapper from fileMapper_jsonGenerator*
+## *import FileMapper from fileMapper*
 
 ## *fileMap = FileMapper(fxnRootDir='yourRootPathHere', fxnJsonPath='yourOutputJsonPAth Here', exts2omit=['.py', '.txt', '.etc'])*
 after defining the variables in the FIleMapper fxn, a JSON will be generated (also returns a python dictionary)
