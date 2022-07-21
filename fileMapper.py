@@ -178,6 +178,3 @@ def FileMapper(mode='function', fxnRootDir='', fxnJsonPath='', exts2omit=[]):
         print('FILEMAPPER RUN COMPLETE')
         print('SAVED ' + str(jsonPath))
     return dict
-
-
-FileMapper(mode='terminal')
