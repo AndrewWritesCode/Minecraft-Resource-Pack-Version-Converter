@@ -15,11 +15,10 @@ def FileMapper(mode='function', fxnRootDir='', fxnJsonPath='', exts2omit=[]):
             print('Terminating Session...')
             exit()
         if fxnJsonPath != '':
-            if jsonFilename[:-5] != '.json':
+            if os.path.splitext(jsonFilename)[1] != '.json':
                 print('JSON filename does not end with .json')
                 print('Terminating Session...')
                 exit()
-
             try:
                 fl = len(jsonFilename) + 1
                 outputDir = jsonPath[:-fl]
@@ -30,57 +29,54 @@ def FileMapper(mode='function', fxnRootDir='', fxnJsonPath='', exts2omit=[]):
                 exit()
 
     elif mode == 'terminal':
-        rootSuc = False
-        outputDirSuc = False
-        extSuc = False
-
-        while not rootSuc:
-            rootDir = input('Enter the path of directory to use as the root: ')
+        rootDir = input('Enter the path of directory to use as the root: ')
+        while True:
             if rootDir == 'x':
                 print('Terminating Session...')
                 exit()
             try:
                 os.chdir(rootDir)
-                rootSuc = True
                 break
             except:
                 print('Could not change to root directory')
                 rootDir = input('Enter the path of directory to use as the root or enter [x] key to terminate: ')
 
-        jsonPath = input('Define path of the JSON file to be generated (include filename and .json): ')
-        jsonFilename = os.path.basename(jsonPath)
-        fl = len(jsonFilename) + 1
-        outputDir = jsonPath[:-fl]
-        while not outputDirSuc:
+        jsonPath = input('Define path of the JSON file to be generated (without filename and .json): ')
+        while True:
             if jsonPath == 'x':
                 print('Terminating Session...')
                 exit()
             try:
-                outputDir = jsonPath[:-fl]
-                os.chdir(outputDir)
-                outputDirSuc = True
+                os.chdir(jsonPath)
                 break
             except:
                 print('Could not change to output directory')
-                jsonPath = input('Define path of the JSON file to be generated or enter [x] key to terminate \
-                (include filename and .json): ')
+                jsonPath = input('Define path of the JSON file to be generated (without filename and .json) or enter '
+                                 '[x] key to terminate: ')
 
-        while not extSuc:
-            if jsonFilename[(len(jsonFilename)-5):] == '.json':
-                extSuc = True
-            else:
-                print('JSON filename does not end with .json')
-                oldFilenameLength = len(jsonFilename)
-                jsonFilename = input('Define JSON filename (without path): ')
-                jsonPath = os.path.join(outputDir, jsonFilename)
-
-        listingExt = False
+        jsonFilename = input('Define filename of the JSON file to be generated (with.json): ')
         while True:
-            if not listingExt:
+            if jsonPath == 'x':
+                print('Terminating Session...')
+                exit()
+            if os.path.splitext(jsonFilename)[1] != '.json':
+                print('JSON filename does not end with .json')
+                jsonFilename = input('Define filename of the JSON file to be generated (with.json) or enter [x] key '
+                                     'to terminate:')
+                continue
+            else:
+                jsonPath = os.path.join(jsonPath, jsonFilename)
+                print(jsonPath)
+                break
+
+        is_omitting_exts = False
+        while True:
+            if not is_omitting_exts:
                 extQ = input('Would you like to omit certain file extension from your file map? [y/n]: ')
             if extQ.lower() == 'y':
-                extOmission = input('Enter [STOP] to finish or enter a file extension that you would like to omit from your file map (such as .py, .cpp, etc): ')
-                listingExt = True
+                extOmission = input('Enter [STOP] to finish or enter a file extension that you would like to omit '
+                                    'from your file map (such as .py, .cpp, etc): ')
+                is_omitting_exts = True
                 if extOmission.upper() == 'STOP':
                     break
                 exts2omit.append(str(extOmission))
@@ -90,7 +86,6 @@ def FileMapper(mode='function', fxnRootDir='', fxnJsonPath='', exts2omit=[]):
                 break
             else:
                 print('Please answer question with [y/n]...')
-
     else:
         print('mode was not properly define, check spelling.')
         print('The following modes are available:')
@@ -135,7 +130,8 @@ def FileMapper(mode='function', fxnRootDir='', fxnJsonPath='', exts2omit=[]):
                         "filepath-" + str(pathNumber): str(path)
                     }
                     dict[filename] = fileInfo
-                    print('RUNNING... PLEASE WAIT...')
+                    if mode == 'terminal':
+                        print('FILEMAPPER RUNNING... PLEASE WAIT...')
                     continue
 
             else:
@@ -177,6 +173,10 @@ def FileMapper(mode='function', fxnRootDir='', fxnJsonPath='', exts2omit=[]):
         f = open(jsonPath, "w")
         f.write(json_object)
         f.close()
+
+    if mode == 'terminal':
+        print('FILEMAPPER RUN COMPLETE')
+        print('SAVED ' + str(jsonPath))
     return dict
 
 
