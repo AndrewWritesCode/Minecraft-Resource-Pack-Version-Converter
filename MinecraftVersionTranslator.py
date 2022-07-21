@@ -185,8 +185,8 @@ for key in input_pack_data:
                     if reference_pack_data[key][refSubKey] == input_pack_data[key][inputSubKey]:
                         fileInfo = {
                             "input filename": key,
-                            "input mcmeta": 'UNKNOWN',
-                            "input mcmeta filepath": 'UNKNOWN',
+                            "input mcmeta filename": 'UNKNOWN',
+                            "reference mcmeta filename": 'UNKNOWN',
                             "reference filename": key,
                             "input filepath": input_pack_data[key][inputSubKey.replace('-converted', '')],
                             "reference filepath": reference_pack_data[key][refSubKey]
@@ -199,8 +199,8 @@ for key in input_pack_data:
             except:
                 inputFileInfo = {
                     "input filename": key,
-                    "input mcmeta": 'UNKNOWN',
-                    "input mcmeta filepath": 'UNKNOWN',
+                    "input mcmeta filename": 'UNKNOWN',
+                    "reference mcmeta filename": 'UNKNOWN',
                     "reference filename": 'UNKNOWN',
                     "input filepath": input_pack_data[key][inputSubKey.replace('-converted', '')],
                     "reference filepath": 'UNKNOWN'
@@ -259,8 +259,12 @@ for key in noMatchDict.copy():
 for key in outputDict.copy():
     possible_mcmeta = input_pack_path + '/' + outputDict[key]["input filepath"] + '/' + outputDict[key]["input filename"] + '.mcmeta'
     if os.path.exists(os.path.abspath(possible_mcmeta)):
-        outputDict[key]["input mcmeta"] = outputDict[key]["input filename"] + '.mcmeta'
-        outputDict[key]["input mcmeta filepath"] = outputDict[key]["input filepath"]
+        outputDict[key]["input mcmeta filename"] = outputDict[key]["input filename"] + '.mcmeta'
+        outputDict[key]["reference mcmeta filename"] = outputDict[key]["reference filename"] + '.mcmeta'
+        for no_match_key in noMatchDict.copy():
+            if noMatchDict[no_match_key]["input filename"] == outputDict[key]["input mcmeta filename"]:
+                del noMatchDict[no_match_key]
+
 
 outputDict["json2pack"] = input_pack_path
 
