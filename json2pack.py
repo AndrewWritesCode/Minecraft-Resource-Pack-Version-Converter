@@ -59,7 +59,6 @@ for key in convertDict:
         except:
             os.makedirs(dst_path)
             os.chdir(dst_path)
-        os.chdir('F:')
         shutil.copyfile(src, dst)
 
         #checks for .mcmeta file
@@ -76,7 +75,6 @@ for key in convertDict:
             except:
                 os.makedirs(dst_path)
                 os.chdir(dst_path)
-            os.chdir('F:')
             shutil.copyfile(src, dst)
 
 
