@@ -101,7 +101,7 @@ def FileMapper(mode='function', fxnRootDir='', fxnJsonPath='', exts2omit=[]):
     dict = {}
 
     l_root = len(rootDir)
-    for dir, subdirs, files in os.walk(os.getcwd()):
+    for dir, subdirs, files in os.walk(rootDir):
         for file in files:
             omitFile = False
             isDup = False
