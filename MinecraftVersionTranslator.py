@@ -114,6 +114,8 @@ def VerTwelve_manualSwaps(possibleFilenames, wordList, ext):
     possibleFilenames.append(manualWordSwap(wordList, ['torch'], ['on', 'torch'], ext))
     possibleFilenames.append(manualWordSwap(wordList, ['grass'], ['tallgrass'], ext))
     possibleFilenames.append(manualWordSwap(wordList, ['wooden'], ['wood'], ext))
+    possibleFilenames.append(manualWordSwap(wordList, ['furnace'], ['furnace', 'off'], ext))
+    possibleFilenames.append(manualWordSwap(wordList, ['poppy'], ['flower', 'rose'], ext))
 
 # analyzes differences between naming conventions of each pack and tags resource_pack_data to keep note of differences
 def conventionsDetector(convert_pack_data, ref_data):
@@ -180,12 +182,15 @@ for key in input_pack_data:
         if inputSubKey.startswith('filepath-') and inputSubKey.endswith('-converted'):
             try:
                 for refSubKey in reference_pack_data[key]:
-                    if reference_pack_data[key][refSubKey] == input_pack_data[key][inputSubKey]: ####
+                    if reference_pack_data[key][refSubKey] == input_pack_data[key][inputSubKey]:
                         fileInfo = {
                             "input filename": key,
+                            "input mcmeta": 'UNKNOWN',
+                            "input mcmeta filepath": 'UNKNOWN',
                             "reference filename": key,
                             "input filepath": input_pack_data[key][inputSubKey.replace('-converted', '')],
                             "reference filepath": reference_pack_data[key][refSubKey]
+
                         }
                         try:
                             outputDict[inputSubKey + '-' + key] = fileInfo
@@ -194,6 +199,8 @@ for key in input_pack_data:
             except:
                 inputFileInfo = {
                     "input filename": key,
+                    "input mcmeta": 'UNKNOWN',
+                    "input mcmeta filepath": 'UNKNOWN',
                     "reference filename": 'UNKNOWN',
                     "input filepath": input_pack_data[key][inputSubKey.replace('-converted', '')],
                     "reference filepath": 'UNKNOWN'
@@ -247,6 +254,13 @@ for key in noMatchDict.copy():
 
         except:
             pass
+
+# mcmeta checks
+for key in outputDict.copy():
+    possible_mcmeta = input_pack_path + '/' + outputDict[key]["input filepath"] + '/' + outputDict[key]["input filename"] + '.mcmeta'
+    if os.path.exists(os.path.abspath(possible_mcmeta)):
+        outputDict[key]["input mcmeta"] = outputDict[key]["input filename"] + '.mcmeta'
+        outputDict[key]["input mcmeta filepath"] = outputDict[key]["input filepath"]
 
 outputDict["json2pack"] = input_pack_path
 
