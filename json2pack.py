@@ -62,4 +62,21 @@ for key in convertDict:
         os.chdir('F:')
         shutil.copyfile(src, dst)
 
+        #checks for .mcmeta file
+        if convertDict[key]["input mcmeta filename"] != 'UNKNOWN':
+            src = input_pack_root + '/' + convertDict[key]["input filepath"] + '/' + convertDict[key]["input mcmeta filename"]
+            src = os.path.abspath(str(src))
+            dst = pack_path_root + '/' + convertDict[key]["reference filepath"] + '/' + convertDict[key][
+                "reference mcmeta filename"]
+            dst = os.path.abspath(str(dst))
+            dst_path = pack_path_root + '/' + convertDict[key]["reference filepath"]
+            dst_path = os.path.abspath(str(dst_path))
+            try:
+                os.chdir(dst_path)
+            except:
+                os.makedirs(dst_path)
+                os.chdir(dst_path)
+            os.chdir('F:')
+            shutil.copyfile(src, dst)
+
 
