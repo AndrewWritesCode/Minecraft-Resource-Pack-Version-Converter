@@ -1,7 +1,11 @@
 import sys
 import os
-from PyQt5.QtWidgets import  QApplication, QMainWindow, QFileDialog, QPushButton, QLineEdit, QCheckBox, QProgressBar, QRadioButton
+from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QPushButton, QLineEdit, QCheckBox, QProgressBar, \
+    QRadioButton
 from PyQt5.uic import loadUi
+from minecraft_version_translator import MinecraftVersionTranslator
+from json2pack import json2pack
+from fileMapper import FileMapper
 
 json_templates_dir = os.path.join(os.getcwd(), 'JSON_templates')
 
@@ -94,7 +98,7 @@ class MainWindow(QMainWindow):
                 appInput["step2Option2_packPath"] = f[0]
             else:
                 p = QFileDialog.getExistingDirectory(self, 'Open Resource Pack root directory')
-                self.step1LineEdit.setText(p)
+                self.option2LineEdit1.setText(p)
                 appInput["step2Option2_packPath"] = p
 
     def Step2Option2PathHandlerPart2(self):
@@ -104,16 +108,30 @@ class MainWindow(QMainWindow):
             appInput["step2Option2_jsonPath"] = f[0]
 
     def Step3PathHandler(self):
-        f = QFileDialog.getSaveFileName(self, 'Save ResourcePack.zip', '', 'Zip Files (*.zip)')
-        self.step3LineEdit.setText(f[0])
-        appInput["step3_path"] = f[0]
+        p = QFileDialog.getExistingDirectory(self, 'Save ResourcePack')
+        self.step3LineEdit.setText(p)
+        appInput["step3_path"] = p
+
+        # f = QFileDialog.getSaveFileName(self, 'Save ResourcePack.zip', '', 'Zip Files (*.zip)')
+        # self.step3LineEdit.setText(f[0])
+        # appInput["step3_path"] = f[0]
 
     def Generate(self):
-        print('Run the code')
+        step1dict = FileMapper(fxnRootDir=appInput["step1_path"])
+        if appInput["optionUsed"] == 1:
+            step2dict = None
+        else:
+            step2dict = FileMapper(fxnRootDir=appInput["step2Option2_packPath"], fxnJsonPath=appInput["step2Option2_jsonPath"])
+            print('filemap done')
+        convDict, noMatchDict = MinecraftVersionTranslator(step1dict, step2dict, appInput["step1_path"], 'mcrpc-conversion')
+        print(convDict)
+        print('conversion done')
+        json2pack(convDict, appInput["step3_path"], mode='ui')
+        print('all done')
 
     def GoToOutputPack(self):
         if appInput["step3_path"] != "UNDEFINED":
-            os.startfile(appInput["step3_path"])
+            os.startfile(appInput["step3_path"].replace(os.path.basename(),''))
 
 
 app = QApplication(sys.argv)

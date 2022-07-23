@@ -102,7 +102,6 @@ def FileMapper(mode='function', fxnRootDir='', fxnJsonPath='', exts2omit=[]):
             isDup = False
             pathNumber = 1
             filename = str(file)
-            l = len(filename)
             path = dir[l_root:]
 
             for extension in exts2omit:
@@ -178,3 +177,6 @@ def FileMapper(mode='function', fxnRootDir='', fxnJsonPath='', exts2omit=[]):
         print('FILEMAPPER RUN COMPLETE')
         print('SAVED ' + str(jsonPath))
     return dict
+
+
+#fileMapper(mode='terminal')
