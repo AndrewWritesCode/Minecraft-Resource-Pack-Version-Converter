@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>600</width>
-    <height>850</height>
+    <height>920</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -43,7 +43,7 @@
       <x>20</x>
       <y>80</y>
       <width>451</width>
-      <height>16</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
@@ -307,7 +307,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>470</y>
+      <y>490</y>
       <width>411</width>
       <height>31</height>
      </rect>
@@ -317,7 +317,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>440</y>
+      <y>460</y>
       <width>421</width>
       <height>31</height>
      </rect>
@@ -461,7 +461,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>510</y>
+      <y>530</y>
       <width>601</width>
       <height>21</height>
      </rect>
@@ -526,7 +526,7 @@
     <property name="geometry">
      <rect>
       <x>460</x>
-      <y>470</y>
+      <y>490</y>
       <width>101</width>
       <height>31</height>
      </rect>
@@ -539,7 +539,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>530</y>
+      <y>550</y>
       <width>551</width>
       <height>31</height>
      </rect>
@@ -559,7 +559,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>590</y>
+      <y>610</y>
       <width>411</width>
       <height>31</height>
      </rect>
@@ -569,7 +569,7 @@
     <property name="geometry">
      <rect>
       <x>440</x>
-      <y>590</y>
+      <y>610</y>
       <width>101</width>
       <height>31</height>
      </rect>
@@ -582,8 +582,8 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>560</y>
-      <width>441</width>
+      <y>580</y>
+      <width>571</width>
       <height>31</height>
      </rect>
     </property>
@@ -593,7 +593,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Where to save to the converted resource pack .zip file:</string>
+     <string>Path of resource pack folder (in most cases you want to use and empty folder):</string>
     </property>
    </widget>
    <widget class="QLabel" name="step2Notes2">
@@ -613,7 +613,7 @@
     <property name="geometry">
      <rect>
       <x>80</x>
-      <y>730</y>
+      <y>800</y>
       <width>441</width>
       <height>31</height>
      </rect>
@@ -629,9 +629,9 @@
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>640</y>
+      <y>710</y>
       <width>421</width>
-      <height>31</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
@@ -642,8 +642,8 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>690</y>
-      <width>601</width>
+      <y>760</y>
+      <width>600</width>
       <height>41</height>
      </rect>
     </property>
@@ -663,7 +663,7 @@
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>770</y>
+      <y>840</y>
       <width>421</width>
       <height>31</height>
      </rect>
@@ -699,6 +699,125 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="step2Notes2_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>130</y>
+      <width>531</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>*Zip files are unzipped to a folder in the same directory as the zip file, the folder is  named after the zip file</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="step2Notes2_3">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>440</y>
+      <width>531</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>*Zip files are unzipped to a folder in the same directory as the zip file, the folder is  named after the zip file</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="step2Notes2_4">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>640</y>
+      <width>531</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>*Result files such as unconverted assets will also be saved to .json files in the same directory</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>670</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <item>
+     <property name="text">
+      <string>1.6.1–1.8.9</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>1.9–1.10.2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>1.11–1.12.2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>1.13–1.14.4</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>1.15–1.16.1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>1.16.2–1.16.5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>1.17.x</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>1.18.x</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>1.19.x</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>670</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Output MC Version:</string>
     </property>
    </widget>
   </widget>
