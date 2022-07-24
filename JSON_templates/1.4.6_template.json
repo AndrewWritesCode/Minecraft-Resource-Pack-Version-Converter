@@ -1,0 +1,754 @@
+{
+    "ctm.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "ctm.png",
+        "number of paths": "1",
+        "filepath-1": ""
+    },
+    "custom_fire_e_w.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "custom_fire_e_w.png",
+        "number of paths": "1",
+        "filepath-1": ""
+    },
+    "custom_fire_n_s.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "custom_fire_n_s.png",
+        "number of paths": "1",
+        "filepath-1": ""
+    },
+    "custom_lava_flowing.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "custom_lava_flowing.png",
+        "number of paths": "1",
+        "filepath-1": ""
+    },
+    "custom_lava_still.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "custom_lava_still.png",
+        "number of paths": "1",
+        "filepath-1": ""
+    },
+    "custom_portal.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "custom_portal.png",
+        "number of paths": "1",
+        "filepath-1": ""
+    },
+    "custom_water_flowing.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "custom_water_flowing.png",
+        "number of paths": "1",
+        "filepath-1": ""
+    },
+    "custom_water_still.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "custom_water_still.png",
+        "number of paths": "1",
+        "filepath-1": ""
+    },
+    "pack.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "pack.png",
+        "number of paths": "1",
+        "filepath-1": ""
+    },
+    "pack.txt": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "pack.txt",
+        "number of paths": "1",
+        "filepath-1": ""
+    },
+    "particles.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "particles.png",
+        "number of paths": "1",
+        "filepath-1": ""
+    },
+    "terrain.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "terrain.png",
+        "number of paths": "1",
+        "filepath-1": ""
+    },
+    "bg.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "bg.png",
+        "number of paths": "1",
+        "filepath-1": "\\achievement"
+    },
+    "chain_1.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "chain_1.png",
+        "number of paths": "1",
+        "filepath-1": "\\armor"
+    },
+    "chain_2.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "chain_2.png",
+        "number of paths": "1",
+        "filepath-1": "\\armor"
+    },
+    "cloth_1.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "cloth_1.png",
+        "number of paths": "1",
+        "filepath-1": "\\armor"
+    },
+    "cloth_1_b.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "cloth_1_b.png",
+        "number of paths": "1",
+        "filepath-1": "\\armor"
+    },
+    "cloth_2.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "cloth_2.png",
+        "number of paths": "1",
+        "filepath-1": "\\armor"
+    },
+    "cloth_2_b.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "cloth_2_b.png",
+        "number of paths": "1",
+        "filepath-1": "\\armor"
+    },
+    "diamond_1.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "diamond_1.png",
+        "number of paths": "1",
+        "filepath-1": "\\armor"
+    },
+    "diamond_2.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "diamond_2.png",
+        "number of paths": "1",
+        "filepath-1": "\\armor"
+    },
+    "gold_1.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "gold_1.png",
+        "number of paths": "1",
+        "filepath-1": "\\armor"
+    },
+    "gold_2.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "gold_2.png",
+        "number of paths": "1",
+        "filepath-1": "\\armor"
+    },
+    "iron_1.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "iron_1.png",
+        "number of paths": "1",
+        "filepath-1": "\\armor"
+    },
+    "iron_2.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "iron_2.png",
+        "number of paths": "1",
+        "filepath-1": "\\armor"
+    },
+    "power.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "power.png",
+        "number of paths": "1",
+        "filepath-1": "\\armor"
+    },
+    "witherarmor.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "witherarmor.png",
+        "number of paths": "1",
+        "filepath-1": "\\armor"
+    },
+    "kz.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "kz.png",
+        "number of paths": "1",
+        "filepath-1": "\\art"
+    },
+    "rain.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "rain.png",
+        "number of paths": "1",
+        "filepath-1": "\\environment"
+    },
+    "snow.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "snow.png",
+        "number of paths": "1",
+        "filepath-1": "\\environment"
+    },
+    "alternate.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "alternate.png",
+        "number of paths": "1",
+        "filepath-1": "\\font"
+    },
+    "default.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "default.png",
+        "number of paths": "1",
+        "filepath-1": "\\font"
+    },
+    "alchemy.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "alchemy.png",
+        "number of paths": "1",
+        "filepath-1": "\\gui"
+    },
+    "allitems.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "allitems.png",
+        "number of paths": "1",
+        "filepath-1": "\\gui"
+    },
+    "background.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "background.png",
+        "number of paths": "1",
+        "filepath-1": "\\gui"
+    },
+    "beacon.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "beacon.png",
+        "number of paths": "1",
+        "filepath-1": "\\gui"
+    },
+    "book.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "book.png",
+        "number of paths": "2",
+        "filepath-1": "\\gui",
+        "filepath-2": "\\item"
+    },
+    "container.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "container.png",
+        "number of paths": "1",
+        "filepath-1": "\\gui"
+    },
+    "crafting.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "crafting.png",
+        "number of paths": "1",
+        "filepath-1": "\\gui"
+    },
+    "crash_logo.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "crash_logo.png",
+        "number of paths": "1",
+        "filepath-1": "\\gui"
+    },
+    "demo_bg.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "demo_bg.png",
+        "number of paths": "1",
+        "filepath-1": "\\gui"
+    },
+    "enchant.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "enchant.png",
+        "number of paths": "1",
+        "filepath-1": "\\gui"
+    },
+    "furnace.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "furnace.png",
+        "number of paths": "1",
+        "filepath-1": "\\gui"
+    },
+    "gui.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "gui.png",
+        "number of paths": "1",
+        "filepath-1": "\\gui"
+    },
+    "icons.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "icons.png",
+        "number of paths": "1",
+        "filepath-1": "\\gui"
+    },
+    "inventory.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "inventory.png",
+        "number of paths": "1",
+        "filepath-1": "\\gui"
+    },
+    "items.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "items.png",
+        "number of paths": "1",
+        "filepath-1": "\\gui"
+    },
+    "repair.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "repair.png",
+        "number of paths": "1",
+        "filepath-1": "\\gui"
+    },
+    "slot.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "slot.png",
+        "number of paths": "1",
+        "filepath-1": "\\gui"
+    },
+    "trap.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "trap.png",
+        "number of paths": "1",
+        "filepath-1": "\\gui"
+    },
+    "unknown_pack.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "unknown_pack.png",
+        "number of paths": "1",
+        "filepath-1": "\\gui"
+    },
+    "list_items.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "list_items.png",
+        "number of paths": "1",
+        "filepath-1": "\\gui\\creative_inv"
+    },
+    "search.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "search.png",
+        "number of paths": "1",
+        "filepath-1": "\\gui\\creative_inv"
+    },
+    "survival_inv.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "survival_inv.png",
+        "number of paths": "1",
+        "filepath-1": "\\gui\\creative_inv"
+    },
+    "arrows.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "arrows.png",
+        "number of paths": "1",
+        "filepath-1": "\\item"
+    },
+    "cart.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "cart.png",
+        "number of paths": "1",
+        "filepath-1": "\\item"
+    },
+    "chest.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "chest.png",
+        "number of paths": "1",
+        "filepath-1": "\\item"
+    },
+    "enderchest.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "enderchest.png",
+        "number of paths": "1",
+        "filepath-1": "\\item"
+    },
+    "largechest.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "largechest.png",
+        "number of paths": "1",
+        "filepath-1": "\\item"
+    },
+    "largexmaschest.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "largexmaschest.png",
+        "number of paths": "1",
+        "filepath-1": "\\item"
+    },
+    "sign.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "sign.png",
+        "number of paths": "1",
+        "filepath-1": "\\item"
+    },
+    "xmaschest.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "xmaschest.png",
+        "number of paths": "1",
+        "filepath-1": "\\item"
+    },
+    "xporb.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "xporb.png",
+        "number of paths": "1",
+        "filepath-1": "\\item"
+    },
+    "beam.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "beam.png",
+        "number of paths": "2",
+        "filepath-1": "\\misc",
+        "filepath-2": "\\mob\\enderdragon"
+    },
+    "dial.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "dial.png",
+        "number of paths": "1",
+        "filepath-1": "\\misc"
+    },
+    "explosion.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "explosion.png",
+        "number of paths": "1",
+        "filepath-1": "\\misc"
+    },
+    "mapbg.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "mapbg.png",
+        "number of paths": "1",
+        "filepath-1": "\\misc"
+    },
+    "mapicons.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "mapicons.png",
+        "number of paths": "1",
+        "filepath-1": "\\misc"
+    },
+    "water.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "water.png",
+        "number of paths": "1",
+        "filepath-1": "\\misc"
+    },
+    "bat.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "bat.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "cat_black.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "cat_black.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "cat_red.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "cat_red.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "cat_siamese.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "cat_siamese.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "cavespider.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "cavespider.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "char.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "char.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "chicken.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "chicken.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "cow.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "cow.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "creeper.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "creeper.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "enchanting_table_book.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "enchanting_table_book.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "enderman.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "enderman.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "fire.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "fire.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "fishing_hook.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "fishing_hook.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "ghast.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "ghast.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "ghast_fire.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "ghast_fire.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "lava.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "lava.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "minecart.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "minecart.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "ozelot.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "ozelot.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "pig.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "pig.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "redcow.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "redcow.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "saddle.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "saddle.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "sheep.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "sheep.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "sheep_fur.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "sheep_fur.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "silverfish.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "silverfish.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "skeleton.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "skeleton.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "skeleton_wither.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "skeleton_wither.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "slime.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "slime.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "snowman.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "snowman.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "spider.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "spider.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "spider_eyes.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "spider_eyes.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "squid.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "squid.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "villager_golem.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "villager_golem.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "wither.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "wither.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "wither_invul.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "wither_invul.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "wolf.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "wolf.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "wolf_angry.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "wolf_angry.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "wolf_collar.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "wolf_collar.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "wolf_tame.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "wolf_tame.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "zombie.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "zombie.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "zombie_villager.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "zombie_villager.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob"
+    },
+    "crystal.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "crystal.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob\\enderdragon"
+    },
+    "ender.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "ender.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob\\enderdragon"
+    },
+    "ender_eyes.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "ender_eyes.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob\\enderdragon"
+    },
+    "shuffle.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "shuffle.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob\\enderdragon"
+    },
+    "witch.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "witch.png",
+        "number of paths": "1",
+        "filepath-1": "\\mob\\villager"
+    },
+    "moon.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "moon.png",
+        "number of paths": "1",
+        "filepath-1": "\\terrain"
+    },
+    "moon_phases.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "moon_phases.png",
+        "number of paths": "1",
+        "filepath-1": "\\terrain"
+    },
+    "sun.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "sun.png",
+        "number of paths": "1",
+        "filepath-1": "\\terrain"
+    },
+    "mclogo.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "mclogo.png",
+        "number of paths": "1",
+        "filepath-1": "\\title"
+    },
+    "mojang.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "mojang.png",
+        "number of paths": "1",
+        "filepath-1": "\\title"
+    },
+    "panorama0.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "panorama0.png",
+        "number of paths": "1",
+        "filepath-1": "\\title\\bg"
+    },
+    "panorama1.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "panorama1.png",
+        "number of paths": "1",
+        "filepath-1": "\\title\\bg"
+    },
+    "panorama2.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "panorama2.png",
+        "number of paths": "1",
+        "filepath-1": "\\title\\bg"
+    },
+    "panorama3.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "panorama3.png",
+        "number of paths": "1",
+        "filepath-1": "\\title\\bg"
+    },
+    "panorama4.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "panorama4.png",
+        "number of paths": "1",
+        "filepath-1": "\\title\\bg"
+    },
+    "panorama5.png": {
+        "filemapper_json": "1.4.6_template.json",
+        "filename": "panorama5.png",
+        "number of paths": "1",
+        "filepath-1": "\\title\\bg"
+    }
+}
