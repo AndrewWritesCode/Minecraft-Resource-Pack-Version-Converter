@@ -3,6 +3,7 @@ import itertools
 import json
 import os
 from sys import exit
+from V12TOV16 import VerTwelve_manualSwaps
 
 
 # checks the files and directories, and initializes the pack data
@@ -40,83 +41,6 @@ def setup():
             reference_pack_path = input('FILEMAPPING ERROR: re-enter the path of your reference JSON file or '
                                        'enter [x] key to terminate: ')
     return input_pack_data, reference_pack_data, reference_pack_path, input_pack_path, packname
-
-# takes 2 list of (sub)words to add, then (sub)words to remove to the wordList
-def manualWordSwap(ref_list, manual_inserts, manual_removes, extension):
-    runBool = False
-    i = 0
-    for item in ref_list:
-        for manual_remove in manual_removes:
-            if item == manual_remove:
-                i += 1
-    if len(manual_removes) == i:
-        runBool = True
-    out_list = []
-    if runBool:
-        iterList = []
-        manualWordList = ref_list.copy()
-        for manual_remove in manual_removes:
-            manualWordList.remove(manual_remove)
-        for manual_insert in manual_inserts:
-            manualWordList.append(manual_insert)
-        for i in range(len(manualWordList)):
-            iterList.append(i)
-        for p in itertools.permutations(iterList):
-            possibleWord = ''
-            for n in p:
-                possibleWord += manualWordList[n] + '_'
-            possibleWord = possibleWord[:-1]
-            out_list.append(possibleWord + extension)
-            #possibleFilenames.append(possibleWord + extension)
-        for manual_insert in manual_inserts:
-            manualWordList.remove(manual_insert)
-        for manual_remove in manual_removes:
-            manualWordList.append(manual_remove)
-        return out_list
-        # return possibleFilenames
-
-def VerTwelve_manualSwaps(possibleFilenames, wordList, ext):
-    #possibleFilenames.append(manualWordSwap(wordList, ['inserts'], ['removals], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['block'], [], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['stained'], [], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['stone', 'bricks'], ['stonebrick'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, [], ['colored'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, [], ['base'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, [], ['damaged', '0'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['chipped'], ['damaged', '1'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, [], ['2'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['stage0'], ['stage', '0'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['stage1'], ['stage', '1'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['stage2'], ['stage', '2'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['stage3'], ['stage', '3'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['stage4'], ['stage', '4'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['stage5'], ['stage', '5'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['stage6'], ['stage', '6'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['stage7'], ['stage', '7'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['stage8'], ['stage', '8'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['bottom'], ['lower'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['top'], ['upper'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, [], ['flower'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['terracotta'], ['hardened', 'stained', 'clay'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['tall'], ['double', 'plant'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['redstone'], ['off', 'redstone'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['oak'], ['wood'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['oak', 'bottom'], ['wood', 'lower'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['oak', 'top'], ['wood', 'upper'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['trapdoor', 'oak'], ['trapdoor'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['tripwire'], ['trip', 'wire'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['tripwire', 'hook'], ['trip', 'wire', 'source'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['note', 'block'], ['noteblock'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['corner'], ['turned', 'normal'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['rail'], ['rail', 'normal'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['on'], ['powered'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['powered', 'on'], ['golden', 'powered'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['powered'], ['golden'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['torch'], ['on', 'torch'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['grass'], ['tallgrass'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['wooden'], ['wood'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['furnace'], ['furnace', 'off'], ext))
-    possibleFilenames.append(manualWordSwap(wordList, ['poppy'], ['flower', 'rose'], ext))
 
 # analyzes differences between naming conventions of each pack and tags resource_pack_data to keep note of differences
 def conventionsDetector(convert_pack_data, ref_data, mode):
