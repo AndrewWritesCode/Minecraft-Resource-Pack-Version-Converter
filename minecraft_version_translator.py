@@ -94,7 +94,16 @@ def conventionsDetector(convert_pack_data, ref_data, mode):
 # takes 2 list of (sub)words to add, then (sub)words to remove to the wordList
 def manualWordSwap(possible_files_list, ref_list, manual_inserts, manual_removes, extension):
     runBool = False
+    insertsEmpty = False
+    removesEmpty = False
+    if manual_inserts == ['']:
+        insertsEmpty =True
+    if manual_removes == ['']:
+        removesEmpty =True
+    if manual_removes == ['flower']:
+        printOut = True
     i = 0
+    # This is so that we only run the script if it can successfully remove all manual removes
     for item in ref_list:
         for manual_remove in manual_removes:
             if item == manual_remove:
@@ -102,15 +111,17 @@ def manualWordSwap(possible_files_list, ref_list, manual_inserts, manual_removes
     if len(manual_removes) == i:
         runBool = True
     out_list = []
-    if runBool:
+    if runBool or removesEmpty:
         iterList = []
         manualWordList = ref_list.copy()
-        for manual_remove in manual_removes:
-            manualWordList.remove(manual_remove)
-        for manual_insert in manual_inserts:
-            manualWordList.append(manual_insert)
-        for i in range(len(manualWordList)):
-            iterList.append(i)
+        if not removesEmpty:
+            for manual_remove in manual_removes:
+                manualWordList.remove(manual_remove)
+        if not insertsEmpty:
+            for manual_insert in manual_inserts:
+                manualWordList.append(manual_insert)
+        for word in range(len(manualWordList)):
+            iterList.append(word)
         for p in itertools.permutations(iterList):
             possibleWord = ''
             for n in p:
@@ -118,32 +129,38 @@ def manualWordSwap(possible_files_list, ref_list, manual_inserts, manual_removes
             possibleWord = possibleWord[:-1]
             out_list.append(possibleWord + extension)
             possible_files_list.append(possibleWord + extension)
-        for manual_insert in manual_inserts:
-            manualWordList.remove(manual_insert)
-        for manual_remove in manual_removes:
-            manualWordList.append(manual_remove)
+        if not insertsEmpty:
+            for manual_insert in manual_inserts:
+                manualWordList.remove(manual_insert)
+        if not removesEmpty:
+            for manual_remove in manual_removes:
+                manualWordList.append(manual_remove)
         return out_list
         # return possibleFilenames
 
 
 def VerTwelve2Sixteen_manualSwaps(csv_path_, possibleFilenames, wordList, ext):
     first_pass = True
-    with open(csv_path_, newline='') as csv_file:
-        manualFileChanges = csv.reader(csv_file, delimiter=',')
-        for row in manualFileChanges:
-            if first_pass:
-                first_pass = False
-                pass
-            else:
-                additions = row[0].split(' ')
-                for entry in additions:
-                    if entry == '':
-                        additions.remove(entry)
-                removals = row[1].split(' ')
-                for entry in removals:
-                    if entry == '':
-                        removals.remove(entry)
-                manualWordSwap(possibleFilenames, wordList, additions, removals, ext)
+    try:
+        with open(csv_path_, newline='') as csv_file:
+            manualFileChanges = csv.reader(csv_file, delimiter=',')
+            for row in manualFileChanges:
+                if first_pass:
+                    first_pass = False
+                    pass
+                else:
+                    additions = row[0].split(' ')
+                    for entry in additions:
+                        if entry == '':
+                            additions.remove(entry)
+                    removals = row[1].split(' ')
+                    for entry in removals:
+                        if entry == '':
+                            removals.remove(entry)
+                    manualWordSwap(possibleFilenames, wordList, additions, removals, ext)
+    except:
+        # if there are empty lines at the end of the .csv file the program will crash, so try statement catches them
+        pass
 
 ########################################################################################################################
 
