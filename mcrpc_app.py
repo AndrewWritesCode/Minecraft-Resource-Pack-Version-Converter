@@ -23,6 +23,7 @@ except:
     print('Could not load pack_format.json')
 
 appInput = {
+    "csv_path": str(os.path.abspath(os.getcwd() + '/CSVconfigs/manualChanges.csv')),
     # step 1 input
     "step1_zipped": "True",
     "step1_path": "",
@@ -80,6 +81,7 @@ class MainWindow(QMainWindow):
         self.progressBar.setMaximum(100)
         self.progressBar.setValue(0)
 
+        # Window Settings
         self.setFixedWidth(600)
         self.setFixedHeight(920)
         self.show()
@@ -170,7 +172,7 @@ class MainWindow(QMainWindow):
         self.progressLabel.setText("Progress: Step 2 Complete!")
         self.progressBar.setValue(66)
         #step 3
-        convDict, noMatchDict = MinecraftVersionTranslator(step1dict, step2dict, appInput["step1_path"], 'mcrpc-conversion')
+        convDict, noMatchDict = MinecraftVersionTranslator(step1dict, step2dict, appInput["step1_path"], 'mcrpc-conversion', csv_path=appInput["csv_path"])
         json2pack(convDict, appInput["step3_path"], mode='ui')
         try:
             mcmeta_path = os.path.join(appInput["step3_path"], 'pack.mcmeta')

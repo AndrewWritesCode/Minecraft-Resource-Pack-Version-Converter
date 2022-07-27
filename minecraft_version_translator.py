@@ -1,9 +1,9 @@
 from fileMapper import FileMapper
 import itertools
 import json
+import csv
 import os
 from sys import exit
-from V12TOV16 import VerTwelve_manualSwaps
 
 
 # checks the files and directories, and initializes the pack data
@@ -41,6 +41,7 @@ def setup():
             reference_pack_path = input('FILEMAPPING ERROR: re-enter the path of your reference JSON file or '
                                        'enter [x] key to terminate: ')
     return input_pack_data, reference_pack_data, reference_pack_path, input_pack_path, packname
+
 
 # analyzes differences between naming conventions of each pack and tags resource_pack_data to keep note of differences
 def conventionsDetector(convert_pack_data, ref_data, mode):
@@ -89,21 +90,70 @@ def conventionsDetector(convert_pack_data, ref_data, mode):
             print('Terminating')
             exit()
 
+
+# takes 2 list of (sub)words to add, then (sub)words to remove to the wordList
+def manualWordSwap(possible_files_list, ref_list, manual_inserts, manual_removes, extension):
+    runBool = False
+    i = 0
+    for item in ref_list:
+        for manual_remove in manual_removes:
+            if item == manual_remove:
+                i += 1
+    if len(manual_removes) == i:
+        runBool = True
+    out_list = []
+    if runBool:
+        iterList = []
+        manualWordList = ref_list.copy()
+        for manual_remove in manual_removes:
+            manualWordList.remove(manual_remove)
+        for manual_insert in manual_inserts:
+            manualWordList.append(manual_insert)
+        for i in range(len(manualWordList)):
+            iterList.append(i)
+        for p in itertools.permutations(iterList):
+            possibleWord = ''
+            for n in p:
+                possibleWord += manualWordList[n] + '_'
+            possibleWord = possibleWord[:-1]
+            out_list.append(possibleWord + extension)
+            possible_files_list.append(possibleWord + extension)
+        for manual_insert in manual_inserts:
+            manualWordList.remove(manual_insert)
+        for manual_remove in manual_removes:
+            manualWordList.append(manual_remove)
+        return out_list
+        # return possibleFilenames
+
+
+def VerTwelve2Sixteen_manualSwaps(csv_path_, possibleFilenames, wordList, ext):
+    first_pass = True
+    with open(csv_path_, newline='') as csv_file:
+        manualFileChanges = csv.reader(csv_file, delimiter=',')
+        for row in manualFileChanges:
+            if first_pass:
+                first_pass = False
+                pass
+            else:
+                additions = row[0].split(' ')
+                for entry in additions:
+                    if entry == '':
+                        additions.remove(entry)
+                removals = row[1].split(' ')
+                for entry in removals:
+                    if entry == '':
+                        removals.remove(entry)
+                manualWordSwap(possibleFilenames, wordList, additions, removals, ext)
+
 ########################################################################################################################
 
 
-
-def MinecraftVersionTranslator(input_pack_data, reference_pack_data, input_pack_path, packname, reference_pack_path='UNDEFINED', mode='ui'):
+def MinecraftVersionTranslator(input_pack_data, reference_pack_data, input_pack_path, packname, csv_path = os.getcwd(),
+                               reference_pack_path='UNDEFINED', mode='ui'):
     print('RUNNING... PLEASE WAIT...')
     conventionsDetector(input_pack_data, reference_pack_data, mode)
     outputDict = {}
     noMatchDict = {}
-    namePathMatchCount = 0
-    nameMatchNoPathCount = 0
-    noMatchCount = 0
-    rewordCount = 0
-    manualRewordCount = 0
-    entryCount = 0
 
     #DEBUG
     if mode != 'ui':
@@ -122,7 +172,6 @@ def MinecraftVersionTranslator(input_pack_data, reference_pack_data, input_pack_
                                 "reference filename": key,
                                 "input filepath": input_pack_data[key][inputSubKey.replace('-converted', '')],
                                 "reference filepath": reference_pack_data[key][refSubKey]
-
                             }
                             try:
                                 outputDict[inputSubKey + '-' + key] = fileInfo
@@ -162,7 +211,7 @@ def MinecraftVersionTranslator(input_pack_data, reference_pack_data, input_pack_
                 possible_phrase += wordList[n] + '_'
             possible_phrase = possible_phrase[:-1]  # remove the last '_'
             possibleFilenames.append(possible_phrase + extension)
-        VerTwelve_manualSwaps(possibleFilenames, wordList, extension)
+        VerTwelve2Sixteen_manualSwaps(csv_path, possibleFilenames, wordList, extension)
 
         for possibleFilename in possibleFilenames:
             try:
@@ -183,7 +232,6 @@ def MinecraftVersionTranslator(input_pack_data, reference_pack_data, input_pack_
                             del noMatchDict[key]
                         except:
                             print('Dictionary save error!')
-
             except:
                 pass
 
