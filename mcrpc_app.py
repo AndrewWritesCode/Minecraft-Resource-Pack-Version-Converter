@@ -23,7 +23,7 @@ except:
     print('Could not load pack_format.json')
 
 appInput = {
-    "csv_path": str(os.path.abspath(os.getcwd() + '/CSVconfigs/manualChanges.csv')),
+    "csv_path": str(os.path.abspath(os.getcwd() + '/env/manualChanges.csv')),
     # step 1 input
     "step1_zipped": "True",
     "step1_path": "",

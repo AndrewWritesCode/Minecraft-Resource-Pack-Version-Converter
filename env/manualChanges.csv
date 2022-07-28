@@ -63,18 +63,18 @@ dark leaves, leaves big
 log dark, log big
 attached, connected
 stem, stem disconnected
-spawner, mob
+spawner, spawner mob
 mushroom, mushroom skin
 mushroom stem, mushroom stem skin block
 piston top, piston top normal
 nether portal, portal
 prismarine, prismarine rough
-carved pumpkin, face off
-jack o lantern, pumpkin face off
+carved pumpkin, pumpkin face off
+jack o lantern, pumpkin face on
 quartz pillar, quartz lines block
 quartz nether, quartz
 cross, dot
-redstone line, redstone line0
+redstone line0, redstone line
 sandstone chiseled, sandstone carved
 sandstone cut, sandstone smooth
 sugar cane, reeds
@@ -104,3 +104,14 @@ golden, gold
 firework rocket, fireworks
 , powder
 book, book normal
+, raw fish
+tropical, raw clownfish
+fishing rod, fishing rod uncast
+light gray dye, dye powder silver
+bucket, bucket empty
+bow, bow standby
+light gray stained glass, glass silver
+dark oak, big oak
+sandstone, sandstone normal
+stone bricks, stonebricks
+stone bricks chiseled, stonebricks carved
