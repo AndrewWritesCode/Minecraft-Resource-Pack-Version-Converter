@@ -140,48 +140,40 @@ def manualWordSwap(possible_files_list, ref_list, manual_inserts, manual_removes
 
 
 def VerTwelve2Sixteen_manualSwaps(csv_path_, possibleFilenames, wordList, ext):
-    first_pass = True
     try:
         with open(csv_path_, newline='') as csv_file:
             manualFileChanges = csv.reader(csv_file, delimiter=',')
+            next(manualFileChanges)
             for row in manualFileChanges:
-                if first_pass:
-                    first_pass = False
-                    pass
-                else:
-                    additions = row[0].split(' ')
-                    for entry in additions:
-                        if entry == '':
-                            additions.remove(entry)
-                    removals = row[1].split(' ')
-                    for entry in removals:
-                        if entry == '':
-                            removals.remove(entry)
-                    manualWordSwap(possibleFilenames, wordList, additions, removals, ext)
+                additions = row[0].split(' ')
+                for entry in additions:
+                    if entry == '':
+                        additions.remove(entry)
+                removals = row[1].split(' ')
+                for entry in removals:
+                    if entry == '':
+                        removals.remove(entry)
+                manualWordSwap(possibleFilenames, wordList, additions, removals, ext)
     except:
         # catches any csv errors
         print('error reading csv file, skipping entry')
         pass
 
 def VerSixteen2Twelve_manualSwaps(csv_path_, possibleFilenames, wordList, ext):
-    first_pass = True
     try:
         with open(csv_path_, newline='') as csv_file:
             manualFileChanges = csv.reader(csv_file, delimiter=',')
+            next(manualFileChanges)
             for row in manualFileChanges:
-                if first_pass:
-                    first_pass = False
-                    pass
-                else:
-                    additions = row[1].split(' ')
-                    for entry in additions:
-                        if entry == '':
-                            additions.remove(entry)
-                    removals = row[0].split(' ')
-                    for entry in removals:
-                        if entry == '':
-                            removals.remove(entry)
-                    manualWordSwap(possibleFilenames, wordList, additions, removals, ext)
+                additions = row[1].split(' ')
+                for entry in additions:
+                    if entry == '':
+                        additions.remove(entry)
+                removals = row[0].split(' ')
+                for entry in removals:
+                    if entry == '':
+                        removals.remove(entry)
+                manualWordSwap(possibleFilenames, wordList, additions, removals, ext)
     except:
         # catches any csv errors
         print('error reading csv file, skipping entry')
