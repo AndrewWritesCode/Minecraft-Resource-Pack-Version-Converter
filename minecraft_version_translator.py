@@ -159,7 +159,32 @@ def VerTwelve2Sixteen_manualSwaps(csv_path_, possibleFilenames, wordList, ext):
                             removals.remove(entry)
                     manualWordSwap(possibleFilenames, wordList, additions, removals, ext)
     except:
-        # if there are empty lines at the end of the .csv file the program will crash, so try statement catches them
+        # catches any csv errors
+        print('error reading csv file, skipping entry')
+        pass
+
+def VerSixteen2Twelve_manualSwaps(csv_path_, possibleFilenames, wordList, ext):
+    first_pass = True
+    try:
+        with open(csv_path_, newline='') as csv_file:
+            manualFileChanges = csv.reader(csv_file, delimiter=',')
+            for row in manualFileChanges:
+                if first_pass:
+                    first_pass = False
+                    pass
+                else:
+                    additions = row[1].split(' ')
+                    for entry in additions:
+                        if entry == '':
+                            additions.remove(entry)
+                    removals = row[0].split(' ')
+                    for entry in removals:
+                        if entry == '':
+                            removals.remove(entry)
+                    manualWordSwap(possibleFilenames, wordList, additions, removals, ext)
+    except:
+        # catches any csv errors
+        print('error reading csv file, skipping entry')
         pass
 
 ########################################################################################################################
@@ -229,6 +254,7 @@ def MinecraftVersionTranslator(input_pack_data, reference_pack_data, input_pack_
             possible_phrase = possible_phrase[:-1]  # remove the last '_'
             possibleFilenames.append(possible_phrase + extension)
         VerTwelve2Sixteen_manualSwaps(csv_path, possibleFilenames, wordList, extension)
+        VerSixteen2Twelve_manualSwaps(csv_path, possibleFilenames, wordList, extension)
 
         for possibleFilename in possibleFilenames:
             try:
